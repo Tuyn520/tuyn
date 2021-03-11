@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9d6d4d19230940229ea08293f03e1613" Name="Diagram1">
+        <EntityTypeShape EntityType="QLBH_D12TMDTModel.CauHinh" Width="1.5" PointX="8.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_D12TMDTModel.CTKM" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_D12TMDTModel.CTHoaDonBan" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_D12TMDTModel.CTHoaDonNhap" Width="1.5" PointX="8.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_D12TMDTModel.HangHoa" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_D12TMDTModel.HoaDonBan" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_D12TMDTModel.HoaDonNhap" Width="1.5" PointX="6" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_D12TMDTModel.KhachHang" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_D12TMDTModel.LoaiHangHoa" Width="1.5" PointX="1.5" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_D12TMDTModel.Multimedia" Width="1.5" PointX="3" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_D12TMDTModel.NguonHang" Width="1.5" PointX="3.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_D12TMDTModel.NhanVien" Width="1.5" PointX="3.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_D12TMDTModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="QLBH_D12TMDTModel.FK_CTHoaDonBan_CTKM" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBH_D12TMDTModel.FK_HoaDonBan_CTKM" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBH_D12TMDTModel.FK_CTHoaDonBan_HangHoa" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBH_D12TMDTModel.FK_CTHoaDonBan_HoaDonBan" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBH_D12TMDTModel.FK_CTHoaDonNhap_HangHoa" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBH_D12TMDTModel.FK_CTHoaDonNhap_HoaDonNhap" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBH_D12TMDTModel.FK_HangHoa_LoaiHangHoa" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBH_D12TMDTModel.FK_Multimedia_HangHoa" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBH_D12TMDTModel.FK_HoaDonBan_KhachHang" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBH_D12TMDTModel.FK_HoaDonBan_NhanVien" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBH_D12TMDTModel.FK_HoaDonNhap_NguonHang" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBH_D12TMDTModel.FK_HoaDonNhap_NhanVien" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

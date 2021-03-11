@@ -1,0 +1,100 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="QLBHAdmin.master.cs" Inherits="QLBH.Admin.QLBHAdmin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="TemplateAdmin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="TemplateAdmin/css/datepicker3.css" rel="stylesheet">
+    <link href="TemplateAdmin/css/styles.css" rel="stylesheet">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><span>Lumino</span>Admin</a>
+				<ul class="user-menu">
+					<li class="dropdown pull-right">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> User <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+							
+		</div><!-- /.container-fluid -->
+	</nav>
+		
+			<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+				<div role="search">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+				</div>
+				<ul class="nav menu">
+					<li class="active"><a href="QLHangHoa.aspx"><span class="glyphicon glyphicon-dashboard"></span> Quản lý hàng hóa</a></li>
+					<li><a href="QLCauHinh.aspx"><span class="glyphicon glyphicon-th"></span> Quản lý cấu hình</a></li>
+					<li><a href="QLCTKM.aspx"><span class="glyphicon glyphicon-stats"></span> Quản lý CTKM</a></li>
+					<li><a href="QLNhanVien.aspx"><span class="glyphicon glyphicon-list-alt"></span> Quản lý nhân viên</a></li>
+					<li><a href="QLNguonHang.aspx"><span class="glyphicon glyphicon-pencil"></span> Quản lý nguồn hàng</a></li>
+					<li><a href="QLKhachHang.aspx"><span class="glyphicon glyphicon-pencil"></span> Quản lý khách hàng</a></li>
+					<li><a href="QLAnhHH.aspx"><span class="glyphicon glyphicon-pencil"></span> Quản lý ảnh hàng hóa</a></li>
+					<li><a href="QLHoaDonBan.aspx"><span class="glyphicon glyphicon-list-alt"></span> Quản lý hóa đơn bán</a></li>
+					<li><a href="QLChiTietHDB.aspx"><span class="glyphicon glyphicon-list-alt"></span> Quản lý chi tiết hóa đơn bán</a></li>
+					<li><a href="QLPhieuNhap.aspx"><span class="glyphicon glyphicon-list-alt"></span> Quản lý phiếu nhập</a></li>
+					<li><a href="QLCTPhieuNhap.aspx"><span class="glyphicon glyphicon-list-alt"></span> Quản lý chi tiết phiếu nhập</a></li>
+					
+					<li role="presentation" class="divider"></li>
+					<li><a href="Login.aspx"<span class="glyphicon glyphicon-user"></span> Login Page</a></li>
+				</ul>
+			</div><!--/.sidebar-->
+		
+			<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
+				<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+				</asp:ContentPlaceHolder>
+			</div>	<!--/.main-->
+
+			<script src="TemplateAdmin/js/jquery-1.11.1.min.js"></script>
+			<script src="TemplateAdmin/js/bootstrap.min.js"></script>
+			<script src="TemplateAdmin/js/chart.min.js"></script>
+			<script src="TemplateAdmin/js/chart-data.js"></script>
+			<script src="TemplateAdmin/js/easypiechart.js"></script>
+			<script src="TemplateAdmin/js/easypiechart-data.js"></script>
+			<script src="TemplateAdmin/js/bootstrap-datepicker.js"></script>
+			<script>
+				$('#calendar').datepicker({
+				});
+
+				!function ($) {
+					$(document).on("click","ul.nav li.parent > a > span.icon", function(){          
+						$(this).find('em:first').toggleClass("glyphicon-minus");      
+					}); 
+					$(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+				}(window.jQuery);
+
+				$(window).on('resize', function () {
+				  if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+				})
+				$(window).on('resize', function () {
+				  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+				})
+			</script>	
+            
+        </div>
+    </form>
+</body>
+</html>

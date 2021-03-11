@@ -1,0 +1,605 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="QLBHClient.master.cs" Inherits="QLBH.Client.QLBHClient" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <!--css-->
+<link href="TemplateClient/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="TemplateClient/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="TemplateClient/css/font-awesome.css" rel="stylesheet">
+<!--css-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="New Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="TemplateClient/js/jquery.min.js"></script>
+<link href='//fonts.googleapis.com/css?family=Cagliostro' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300' rel='stylesheet' type='text/css'>
+<!--search jQuery-->
+	<script src="TemplateClient/js/main.js"></script>
+<!--search jQuery-->
+<script src="TemplateClient/js/responsiveslides.min.js"></script>
+ <script>
+    $(function () {
+      $("#slider").responsiveSlides({
+      	auto: true,
+      	nav: true,
+      	speed: 500,
+        namespace: "callbacks",
+        pager: true,
+      });
+    });
+ </script>
+ <!--mycart-->
+<script type="text/javascript" src="TemplateClient/js/bootstrap-3.1.1.min.js"></script>
+ <!-- cart -->
+<script src="TemplateClient/js/simpleCart.min.js"></script>
+<!-- cart -->
+  <!--start-rate-->
+<script src="TemplateClient/js/jstarbox.js"></script>
+	<link rel="stylesheet" href="TemplateClient/css/jstarbox.css" type="text/css" media="screen" charset="utf-8" />
+		<script type="text/javascript">
+			jQuery(function() {
+			jQuery('.starbox').each(function() {
+				var starbox = jQuery(this);
+					starbox.starbox({
+					average: starbox.attr('data-start-value'),
+					changeable: starbox.hasClass('unchangeable') ? false : starbox.hasClass('clickonce') ? 'once' : true,
+					ghosting: starbox.hasClass('ghosting'),
+					autoUpdateAverage: starbox.hasClass('autoupdate'),
+					buttons: starbox.hasClass('smooth') ? false : starbox.attr('data-button-count') || 5,
+					stars: starbox.attr('data-star-count') || 5
+					}).bind('starbox-value-changed', function(event, value) {
+					if(starbox.hasClass('random')) {
+					var val = Math.random();
+					starbox.next().text(' '+val);
+					return val;
+					} 
+				})
+			});
+		});
+		</script>
+<!--//End-rate-->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!--header-->
+		<div class="header">
+			<div class="header-top">
+				<div class="container">
+					 <div class="top-left">
+						<a href="#"> Liên Hệ:  <i class="glyphicon glyphicon-phone" aria-hidden="true"></i> +0123-456-789</a>
+					</div>
+					<div class="top-right">
+					<ul>
+						<li><a href="GioHang.aspx">Thanh Toán</a></li>
+						<li><a href="login.aspx">Đăng Nhập</a></li>
+						<li><a href="DangKy.aspx"> Tạo Tài Khoản </a></li>
+					</ul>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			<div class="heder-bottom">
+				<div class="container">
+					<div class="logo-nav">
+						<div class="logo-nav-left">
+							<h1><a href="TrangChu.aspx">Sunflower <span>Shop anywhere</span></a></h1>
+						</div>
+						<div class="logo-nav-left1">
+							<nav class="navbar navbar-default">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header nav_2">
+								<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+							</div> 
+							<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+								<ul class="nav navbar-nav">
+									<li class="active"><a href="TrangChu.aspx" class="act">Trang Chủ</a></li>	
+									<!-- Mega Menu -->
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Văn Phòng Phẩm<b class="caret"></b></a>
+										<ul class="dropdown-menu multi-column columns-3">
+											<div class="row">
+												<div class="col-sm-3  multi-gd-img">
+													<ul class="multi-column-dropdown">
+														<a href="SanPhamVanPhongPham.aspx"><h6>Văn Phòng Phẩm</h6></a>
+														<li><a href="SanPhamVanPhongPham.aspx">Đồ dùng học tập</a></li>
+														<li><a href="SanPhamVanPhongPham.aspx">Sticker</a></li>
+														<li><a href="SanPhamVanPhongPham.aspx">Quà Tặng</a></li>
+													</ul>
+												</div>
+												<div class="col-sm-3  multi-gd-img">
+													<ul class="multi-column-dropdown">
+														<h6>Sản Phẩm Mới</h6>
+														<asp:Repeater runat="server" ID="rpsanphammoi_01">
+															<ItemTemplate>
+																<li>
+																	<%--<a href="products.html">Sticker Sắn & Friends</a>--%>
+																	<a href='<%# "TrangChuDetail.aspx?Ma=" + Eval("MaHangHoa").ToString() %>'><%# Eval("TenHangHoa").ToString() %></a>
+																</li>
+															</ItemTemplate>
+														</asp:Repeater>
+													</ul>
+												</div>
+												<div class="col-sm-3  multi-gd-img">
+													<img alt=" " src="TemplateClient/images/106133740_275846550515605_514763773670199547_n.jpg">
+												</div> 
+												<div class="col-sm-3  multi-gd-img">
+													<img alt=" " src="TemplateClient/images/106412770_690856871473696_8170883570689216139_n.jpg">
+												</div> 
+												<div class="clearfix"></div>
+											</div>
+										</ul>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Trang Sức <b class="caret"></b></a>
+										<ul class="dropdown-menu multi-column columns-3">
+											<div class="row">
+												<div class="col-sm-3  multi-gd-img">
+													<ul class="multi-column-dropdown">
+														<a href="SanPhamTrangSuc.aspx"><h6>Trang Sức</h6></a>
+														<li><a href="SanPhamTrangSuc.aspx">Kính</a></li>
+														<li><a href="SanPhamTrangSuc.aspx">Khuyên Tai</a></li>
+														<li><a href="SanPhamTrangSuc.aspx">Nhẫn</a></li>
+														<li><a href="SanPhamTrangSuc.aspx">Vòng Tay/ Vòng Cổ</a></li>
+														<li><a href="SanPhamTrangSuc.aspx"> Phụ Kiện Tóc </a></li>
+													</ul>
+												</div>
+												<div class="col-sm-3  multi-gd-img">
+													<ul class="multi-column-dropdown">
+														<h6>Sản Phẩm Mới</h6>
+														<asp:Repeater runat="server" ID="rpSanPhamMoi_02">
+															<ItemTemplate>
+																<li>
+																	<a href='<%# "TrangChuDetail.aspx?Ma=" + Eval("MaHangHoa").ToString() %>'><%# Eval("TenHangHoa").ToString() %></a>
+																</li>
+															</ItemTemplate>
+														</asp:Repeater>
+													</ul>
+												</div>
+												<div class="col-sm-3  multi-gd-img">
+													<img alt=" " src="TemplateClient/images/105881283_712951975944455_8009449622347193780_n.jpg">
+												</div> 
+												<div class="col-sm-3  multi-gd-img">
+													<img alt=" " src="TemplateClient/images/83105026_679596039561315_4485994231332868100_n.jpg">
+												</div> 
+											</div>
+										</ul>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Phụ Kiện/ Tiện Ích <b class="caret"></b></a>
+										<ul class="dropdown-menu multi-column columns-3">
+											<div class="row">
+												<div class="col-sm-3  multi-gd-img">
+													<ul class="multi-column-dropdown">
+														<a href="SanPhamPhuKienTienIch.aspx"><h6>Phụ Kiện/ Tiện Ích</h6></a>
+														<li><a href="SanPhamPhuKienTienIch.aspx">Túi/ Balo/ Ví Mini</a></li>
+														<li><a href="SanPhamPhuKienTienIch.aspx">Phụ Kiện</a></li>
+														<li><a href="SanPhamPhuKienTienIch.aspx">Tiện Ích</a></li>
+													</ul>
+												</div>
+												<div class="col-sm-3  multi-gd-img">
+													<ul class="multi-column-dropdown">
+														<h6>Sản Phẩm Mới</h6>
+														<asp:Repeater runat="server" ID="rpsanphammoi_03">
+															<ItemTemplate>
+																<li>
+																	<a href='<%# "TrangChuDetail.aspx?Ma=" + Eval("MaHangHoa").ToString() %>'><%# Eval("TenHangHoa").ToString() %></a>
+																</li>
+															</ItemTemplate>
+														</asp:Repeater>
+													</ul>
+												</div>
+												<div class="col-sm-3  multi-gd-img">
+													<img alt=" " src="TemplateClient/images/105981493_301969264178211_9151645792227586492_n.jpg">
+												</div> 
+												<div class="col-sm-3  multi-gd-img">
+													<img alt=" " src="TemplateClient/images/106354671_2735619416696823_635362835432360866_n.jpg">
+												</div> 
+												<div class="clearfix"></div>
+											</div>
+										</ul>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Trang Trí/ Nội Thất <b class="caret"></b></a>
+										<ul class="dropdown-menu multi-column columns-3">
+											<div class="row">
+												<div class="col-sm-3  multi-gd-img">
+													<ul class="multi-column-dropdown">
+														<a href="SanPhamTrangTriNoiThat.aspx"><h6>Trang Trí/ Nội Thất</h6></a>
+														<li><a href="SanPhamTrangTriNoiThat.aspx">Trang Trí</a></li>
+														<li><a href="SanPhamTrangTriNoiThat.aspx">Nội Thất</a></li>
+														<li><a href="SanPhamTrangTriNoiThat.aspx">Gấu bông/ Gối bông</a></li>
+													</ul>
+												</div>
+												<div class="col-sm-3  multi-gd-img">
+													<ul class="multi-column-dropdown">
+														<h6>Sản Phẩm Mới</h6>
+														<asp:Repeater runat="server" ID="rpsanphammoi_04">
+															<ItemTemplate>
+																<li>
+																	<a href='<%# "TrangChuDetail.aspx?Ma=" + Eval("MaHangHoa").ToString() %>'><%# Eval("TenHangHoa").ToString() %></a>
+																</li>
+															</ItemTemplate>
+														</asp:Repeater>
+													</ul>
+												</div>
+												<div class="col-sm-3  multi-gd-img">
+													<img alt=" " src="TemplateClient/images/105495879_952107255236847_6155643155163041699_n.jpg">
+												</div> 
+												<div class="col-sm-3  multi-gd-img">
+													<img alt=" " src="TemplateClient/images/106453103_304992037346037_3990048655971564113_n.jpg">
+												</div> 
+												<div class="clearfix"></div>
+											</div>
+										</ul>
+									</li>
+									<li><a href="LienHe.aspx">Liên Hệ</a></li>
+								</ul>
+							</div>
+							</nav>
+						</div>
+						
+						<div class="header-right2">
+							<div class="cart box_1">
+								<a href="GioHang.aspx">
+									<h3> <div class="total">
+										<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
+										<img src="TemplateClient/images/bag.png" alt="" />
+									</h3>
+								</a>
+								<p><a href="GioHang.aspx" class="simpleCart_empty">Giỏ Hàng</a></p>
+								<div class="clearfix"> </div>
+							</div>	
+						</div>
+						<div class="logo-nav-right">
+							<ul class="cd-header-buttons">
+								<li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
+							</ul> <!-- cd-header-buttons -->
+							<div id="cd-search" class="cd-search">
+								<form action="#" method="post">
+									<input name="Search" type="search" placeholder="Search...">
+								</form>
+							</div>	
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--header-->
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+		<!---footer--->
+					<div class="footer-w3l">
+						<div class="container">
+							<div class="footer-grids">
+								<div class="col-md-3 footer-grid">
+									<h4>Chúng Tôi </h4>
+									<p>Sunflower kinh doanh trong lĩnh vực văn phòng phẩm ,đồ dùng học tập,trang sức ,phụ kiện -tiện ích....” <br /> Sunflower luôn hiểu và quan tâm đến nhu cầu thiết yếu hiện nay của khách hàng trong quá trình tìm kiếm tri thức.</p>
+									<div class="social-icon">
+										<a href="#"><i class="icon"></i></a>
+										<a href="#"><i class="icon1"></i></a>
+										<a href="#"><i class="icon2"></i></a>
+										<a href="#"><i class="icon3"></i></a>
+									</div>
+								</div>
+								<div class="col-md-3 footer-grid">
+									<h4>Tài Khoản</h4>
+									<ul>
+										<li><a href="GioHang.aspx">Thanh Toán</a></li>
+										<li><a href="login.html">Đăng Nhập</a></li>
+										<li><a href="registered.html"> Tạo Tài Khoản </a></li>
+									</ul>
+								</div>
+								<div class="col-md-3 footer-grid">
+									<h4>Thông Tin</h4>
+									<ul>
+										<li><a href="index.html">Trang Chủ</a></li>
+										<li><a href="products.html">Văn Phòng Phẩm</a></li>
+										<li><a href="codes.html">Trang Sức</a></li>
+										<li><a href="mail.html">Phụ Kiện/ Tiện Ích</a></li>
+										<li><a href="products1.html">Trang Trí/ Nội Thất</a></li>
+										<li><a href="products1.html">Liên Hệ</a></li>
+									</ul>
+								</div>
+								<div class="col-md-3 footer-grid foot">
+									<h4>Liên Hệ</h4>
+									<ul>
+										<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a href="#">235, Hoàng Quốc Việt, Bắc Từ Liêm, Hà Nội</a></li>
+										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a href="#">1 599-033-5036</a></li>
+										<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:example@mail.com"> sunflower@gmail.com</a></li>
+										
+									</ul>
+								</div>
+							<div class="clearfix"> </div>
+							</div>
+							
+						</div>
+					</div>
+					<!---footer--->
+					<!--copy-->
+					<div class="copy-section">
+						<div class="container">
+							<div class="copy-left">
+								<p>&copy; 2020 Sunflower . All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+							</div>
+							<div class="copy-right">
+								<img src="TemplateClient/images/card.png" alt=""/>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				<!--copy-->
+				<div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content modal-info">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+						</div>
+						<div class="modal-body">
+							<div class="news-gr">
+								<div class="col-md-5 new-grid1">
+								<img src="TemplateClient/images/p5.jpg" class="img-responsive" alt="">
+								</div>
+									<div class="col-md-7 new-grid">
+										<h5>Ten Women's Cotton Viscose fabric Grey Shrug</h5>
+										<h6>Quick Overview</h6>
+										<span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+										<div class="color-quality">
+											<div class="color-quality-left">
+												<h6>Color : </h6>
+												<ul>
+													<li><a href="#"><span></span>Red</a></li>
+													<li><a href="#" class="brown"><span></span>Yellow</a></li>
+													<li><a href="#" class="purple"><span></span>Purple</a></li>
+													<li><a href="#" class="gray"><span></span>Violet</a></li>
+												</ul>
+											</div>
+											<div class="color-quality-right">
+												<h6>Quality :</h6>
+												<div class="quantity"> 
+													<div class="quantity-select">                           
+														<div class="entry value-minus1">&nbsp;</div>
+														<div class="entry value1"><span>1</span></div>
+														<div class="entry value-plus1 active">&nbsp;</div>
+													</div>
+												</div>
+												<!--quantity-->
+														<script>
+                                                            $('.value-plus1').on('click', function () {
+                                                                var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10) + 1;
+                                                                divUpd.text(newVal);
+                                                            });
+
+                                                            $('.value-minus1').on('click', function () {
+                                                                var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10) - 1;
+                                                                if (newVal >= 1) divUpd.text(newVal);
+                                                            });
+														</script>
+													<!--quantity-->
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+									<div class="women">
+										<span class="size">XL / XXL / S </span>
+										<p ><del>$100.00</del><em class="item_price"> $70.00 </em></p>
+										<div class="add">
+										   <button class="btn btn-danger my-cart-btn my-cart-b" data-id="3" data-name="Kabuli Chana" data-summary="summary 3" data-price="2.00" data-quantity="1" data-image="images/of2.png">Add to Cart</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content modal-info">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+						</div>
+						<div class="modal-body">
+							<div class="news-gr">
+								<div class="col-md-5 new-grid1">
+								<img src="TemplateClient/images/p7.jpg" class="img-responsive" alt="">
+								</div>
+									<div class="col-md-7 new-grid">
+										<h5>Ten Women's Cotton Viscose fabric Grey Shrug</h5>
+										<h6>Quick Overview</h6>
+										<span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+										<div class="color-quality">
+											<div class="color-quality-left">
+												<h6>Color : </h6>
+												<ul>
+													<li><a href="#"><span></span>Red</a></li>
+													<li><a href="#" class="brown"><span></span>Yellow</a></li>
+													<li><a href="#" class="purple"><span></span>Purple</a></li>
+													<li><a href="#" class="gray"><span></span>Violet</a></li>
+												</ul>
+											</div>
+											<div class="color-quality-right">
+												<h6>Quality :</h6>
+												<div class="quantity"> 
+													<div class="quantity-select">                           
+														<div class="entry value-minus1">&nbsp;</div>
+														<div class="entry value1"><span>1</span></div>
+														<div class="entry value-plus1 active">&nbsp;</div>
+													</div>
+												</div>
+												<!--quantity-->
+														<script>
+                                                            $('.value-plus1').on('click', function () {
+                                                                var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10) + 1;
+                                                                divUpd.text(newVal);
+                                                            });
+
+                                                            $('.value-minus1').on('click', function () {
+                                                                var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10) - 1;
+                                                                if (newVal >= 1) divUpd.text(newVal);
+                                                            });
+														</script>
+													<!--quantity-->
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+									<div class="women">
+										<span class="size">XL / XXL / S </span>
+										<p ><del>$100.00</del><em class="item_price"> $70.00 </em></p>
+										<div class="add">
+										   <button class="btn btn-danger my-cart-btn my-cart-b" data-id="3" data-name="Kabuli Chana" data-summary="summary 3" data-price="2.00" data-quantity="1" data-image="images/of2.png">Add to Cart</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="myModal3" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content modal-info">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+						</div>
+						<div class="modal-body">
+							<div class="news-gr">
+								<div class="col-md-5 new-grid1">
+								<img src="TemplateClient/images/p10.jpg" class="img-responsive" alt="">
+								</div>
+									<div class="col-md-7 new-grid">
+										<h5>Ten Men's Cotton Viscose fabric Grey Shrug</h5>
+										<h6>Quick Overview</h6>
+										<span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+										<div class="color-quality">
+											<div class="color-quality-left">
+												<h6>Color : </h6>
+												<ul>
+													<li><a href="#"><span></span>Red</a></li>
+													<li><a href="#" class="brown"><span></span>Yellow</a></li>
+													<li><a href="#" class="purple"><span></span>Purple</a></li>
+													<li><a href="#" class="gray"><span></span>Violet</a></li>
+												</ul>
+											</div>
+											<div class="color-quality-right">
+												<h6>Quality :</h6>
+												<div class="quantity"> 
+													<div class="quantity-select">                           
+														<div class="entry value-minus1">&nbsp;</div>
+														<div class="entry value1"><span>1</span></div>
+														<div class="entry value-plus1 active">&nbsp;</div>
+													</div>
+												</div>
+												<!--quantity-->
+														<script>
+                                                            $('.value-plus1').on('click', function () {
+                                                                var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10) + 1;
+                                                                divUpd.text(newVal);
+                                                            });
+
+                                                            $('.value-minus1').on('click', function () {
+                                                                var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10) - 1;
+                                                                if (newVal >= 1) divUpd.text(newVal);
+                                                            });
+														</script>
+													<!--quantity-->
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+									<div class="women">
+										<span class="size">XL / XXL / S </span>
+										<p ><del>$100.00</del><em class="item_price"> $70.00 </em></p>
+										<div class="add">
+										   <button class="btn btn-danger my-cart-btn my-cart-b" data-id="3" data-name="Kabuli Chana" data-summary="summary 3" data-price="2.00" data-quantity="1" data-image="images/of2.png">Add to Cart</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="myModal4" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content modal-info">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+						</div>
+						<div class="modal-body">
+							<div class="news-gr">
+								<div class="col-md-5 new-grid1">
+								<img src="TemplateClient/images/p12.jpg" class="img-responsive" alt="">
+								</div>
+									<div class="col-md-7 new-grid">
+										<h5>Ten Men's Cotton Viscose fabric Grey Shrug</h5>
+										<h6>Quick Overview</h6>
+										<span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+										<div class="color-quality">
+											<div class="color-quality-left">
+												<h6>Color : </h6>
+												<ul>
+													<li><a href="#"><span></span>Red</a></li>
+													<li><a href="#" class="brown"><span></span>Yellow</a></li>
+													<li><a href="#" class="purple"><span></span>Purple</a></li>
+													<li><a href="#" class="gray"><span></span>Violet</a></li>
+												</ul>
+											</div>
+											<div class="color-quality-right">
+												<h6>Quality :</h6>
+												<div class="quantity"> 
+													<div class="quantity-select">                           
+														<div class="entry value-minus1">&nbsp;</div>
+														<div class="entry value1"><span>1</span></div>
+														<div class="entry value-plus1 active">&nbsp;</div>
+													</div>
+												</div>
+												<!--quantity-->
+														<script>
+                                                            $('.value-plus1').on('click', function () {
+                                                                var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10) + 1;
+                                                                divUpd.text(newVal);
+                                                            });
+
+                                                            $('.value-minus1').on('click', function () {
+                                                                var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10) - 1;
+                                                                if (newVal >= 1) divUpd.text(newVal);
+                                                            });
+														</script>
+													<!--quantity-->
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										<div class="women">
+										<span class="size">XL / XXL / S </span>
+										<p ><del>$100.00</del><em class="item_price"> $70.00 </em></p>
+										<div class="add">
+										   <button class="btn btn-danger my-cart-btn my-cart-b" data-id="3" data-name="Kabuli Chana" data-summary="summary 3" data-price="2.00" data-quantity="1" data-image="images/of2.png">Add to Cart</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+    </form>
+</body>
+</html>
